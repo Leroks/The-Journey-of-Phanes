@@ -127,15 +127,15 @@ public class EnemyKnight : MonoBehaviour
                 m_timeSinceAttack = 0.0f;
             }
             
-            // //Jump
-            // else if (farToEnemyVert > 1f && !isMoving && m_grounded)
-            // {
-            //     m_animator.SetTrigger("Jump");
-            //     m_grounded = false;
-            //     m_animator.SetBool("Grounded", m_grounded);
-            //     m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
-            //     m_groundSensor.Disable(0.2f);
-            // }
+            //Jump
+            else if (farToEnemyVert > 1f && !isMoving && m_grounded && player.GetComponent<HeroKnight>().onPlatform)
+            {
+                m_animator.SetTrigger("Jump");
+                m_grounded = false;
+                m_animator.SetBool("Grounded", m_grounded);
+                m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
+                m_groundSensor.Disable(0.2f);
+            }
 
             //Run
             else if (isMoving)

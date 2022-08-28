@@ -28,6 +28,7 @@ public class HeroKnight : MonoBehaviour
     private float m_rollCurrentTime;
     private int healthPoints = 3;
     private Collider2D playerHitBox;
+    public bool onPlatform = false;
 
 
     // Use this for initialization
@@ -139,23 +140,23 @@ public class HeroKnight : MonoBehaviour
             m_timeSinceAttack = 0.0f;
         }
 
-        // Block
-        else if (Input.GetMouseButtonDown(1) && !m_rolling)
-        {
-            m_animator.SetTrigger("Block");
-            m_animator.SetBool("IdleBlock", true);
-        }
+        // // Block
+        // else if (Input.GetMouseButtonDown(1) && !m_rolling)
+        // {
+        //     m_animator.SetTrigger("Block");
+        //     m_animator.SetBool("IdleBlock", true);
+        // }
 
         else if (Input.GetMouseButtonUp(1))
             m_animator.SetBool("IdleBlock", false);
 
-        // Roll
-        else if (Input.GetKeyDown("left shift") && !m_rolling && !m_isWallSliding)
-        {
-            m_rolling = true;
-            m_animator.SetTrigger("Roll");
-            m_body2d.velocity = new Vector2(m_facingDirection * m_rollForce, m_body2d.velocity.y);
-        }
+        // // Roll
+        // else if (Input.GetKeyDown("left shift") && !m_rolling && !m_isWallSliding)
+        // {
+        //     m_rolling = true;
+        //     m_animator.SetTrigger("Roll");
+        //     m_body2d.velocity = new Vector2(m_facingDirection * m_rollForce, m_body2d.velocity.y);
+        // }
 
 
         //Jump
@@ -186,24 +187,28 @@ public class HeroKnight : MonoBehaviour
         }
     }
 
-    // Animation Events
-    // Called in slide animation.
-    void AE_SlideDust()
-    {
-        Vector3 spawnPosition;
+    // // Animation Events
+    // // Called in slide animation.
+    // void AE_SlideDust()
+    // {
+    //     Vector3 spawnPosition;
 
-        if (m_facingDirection == 1)
-            spawnPosition = m_wallSensorR2.transform.position;
-        else
-            spawnPosition = m_wallSensorL2.transform.position;
+    //     if (m_facingDirection == 1)
+    //         spawnPosition = m_wallSensorR2.transform.position;
+    //     else
+    //         spawnPosition = m_wallSensorL2.transform.position;
 
-        if (m_slideDust != null)
-        {
-            // Set correct arrow spawn position
-            GameObject dust = Instantiate(m_slideDust, spawnPosition, gameObject.transform.localRotation) as GameObject;
-            // Turn arrow in correct direction
-            dust.transform.localScale = new Vector3(m_facingDirection, 1, 1);
-        }
+    //     if (m_slideDust != null)
+    //     {
+    //         // Set correct arrow spawn position
+    //         GameObject dust = Instantiate(m_slideDust, spawnPosition, gameObject.transform.localRotation) as GameObject;
+    //         // Turn arrow in correct direction
+    //         dust.transform.localScale = new Vector3(m_facingDirection, 1, 1);
+    //     }
+    // }
+    private void OnCollisionStay2D(Collision2D col){
+        if(col.gameObject.CompareTag("Platform")){onPlatform = true;}
+        else{onPlatform = false;}
     }
 
     // // TODO on collision with enemey play hurt animation
