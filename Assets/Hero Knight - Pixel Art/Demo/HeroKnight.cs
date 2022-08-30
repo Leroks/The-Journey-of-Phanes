@@ -140,12 +140,12 @@ public class HeroKnight : MonoBehaviour
             m_timeSinceAttack = 0.0f;
         }
 
-        // // Block
-        // else if (Input.GetMouseButtonDown(1) && !m_rolling)
-        // {
-        //     m_animator.SetTrigger("Block");
-        //     m_animator.SetBool("IdleBlock", true);
-        // }
+        // Block
+        else if (Input.GetMouseButtonDown(1) && !m_rolling)
+        {
+            m_animator.SetTrigger("Block");
+            m_animator.SetBool("IdleBlock", true);
+        }
 
         else if (Input.GetMouseButtonUp(1))
             m_animator.SetBool("IdleBlock", false);
@@ -206,9 +206,10 @@ public class HeroKnight : MonoBehaviour
     //         dust.transform.localScale = new Vector3(m_facingDirection, 1, 1);
     //     }
     // }
-    private void OnCollisionStay2D(Collision2D col){
-        if(col.gameObject.CompareTag("Platform")){onPlatform = true;}
-        else{onPlatform = false;}
+    private void OnCollisionStay2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Platform")) { onPlatform = true; }
+        else { onPlatform = false; }
     }
 
     // // TODO on collision with enemey play hurt animation
