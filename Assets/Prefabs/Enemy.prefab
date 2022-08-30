@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 702405529490670103}
   - component: {fileID: 3097489806685724560}
   - component: {fileID: 4360508941495177016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 5448370864754279976}
   - component: {fileID: 3425161962580753812}
   - component: {fileID: 309989788617733761}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallSensor_R2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 963785288280186636}
   - component: {fileID: 3720793015450055186}
   - component: {fileID: 5446350404030085091}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallSensor_L2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 2123505985403090044}
   - component: {fileID: 1690837729115888924}
   - component: {fileID: 7132493861029582947}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallSensor_R1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 2693630288940533564}
   - component: {fileID: 7773139033492191667}
   - component: {fileID: 4607149677747435690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallSensor_L1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 6745109054941880042}
   - component: {fileID: 6847261736157866697}
   - component: {fileID: 946905226321699360}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -477,5 +477,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72851243945cd1449d4a6d9f2ecb2ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 4
-  m_jumpForce: 7.5
