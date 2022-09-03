@@ -14,16 +14,16 @@ public class EnemyKnight : MonoBehaviour
     private Sensor_HeroKnight   m_wallSensorL1;
     private Sensor_HeroKnight   m_wallSensorL2;
     private bool                m_grounded = false;
-    private bool                m_rolling = false;
+    // private bool                m_rolling = false;
     private int                 m_facingDirection = 1;
     private int                 m_currentAttack = 0;
     private float               m_timeSinceAttack = 0.0f;
     private float               m_timeSinceJump = 0.0f;
     private float               m_delayToIdle = 0.0f;
-    private float               m_rollDuration = 8.0f / 14.0f;
-    private float               m_rollCurrentTime;
+    // private float               m_rollDuration = 8.0f / 14.0f;
+    // private float               m_rollCurrentTime;
     private GameObject player;
-    private float distanceToEnemy;
+    // private float distanceToEnemy;
     private Vector2 target;
     private float farToEnemy;
     private float farToEnemyVert;
@@ -43,15 +43,24 @@ public class EnemyKnight : MonoBehaviour
         m_wallSensorL2 = transform.Find("WallSensor_L2").GetComponent<Sensor_HeroKnight>();
     }
 
-    void Die(){
-        m_animator.SetTrigger("Death");
-        Destroy(gameObject, 1);
+    public void Die(){
+        GameObject.FindGameObjectWithTag("Manager").GetComponent<Manager>().Spawn();
+        //m_animator.SetTrigger("Death");
+        //Destroy(gameObject, 1);
+        Destroy(gameObject);
     }
 
     private void Flip()
     {
+        if(m_FacingRight){
+            gameObject.transform.Rotate(0, 180, 0);
+        }
+        else{
+            gameObject.transform.Rotate(0, -180, 0);
+        }
         m_FacingRight = !m_FacingRight;
-        GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
+        //GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
+        
     }
 
     // Update is called once per frame
@@ -96,7 +105,7 @@ public class EnemyKnight : MonoBehaviour
             //distanceToEnemy = Vector2.Distance(player.transform.position, transform.position);
 
             // Move
-            if (farToEnemyAbs < 12f && farToEnemyAbs > 1.5f)
+            if (farToEnemyAbs < 20f && farToEnemyAbs > 1.5f)
             {
                 isMoving = true;
                 m_body2d.velocity = new Vector2(-m_facingDirection * m_speed, m_body2d.velocity.y); 
