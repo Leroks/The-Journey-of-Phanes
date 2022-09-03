@@ -4,7 +4,8 @@
 AnimationClip:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Vampire_Idle
   serializedVersion: 6
   m_Legacy: 0
@@ -30,14 +31,6 @@ AnimationClip:
       value: {fileID: 21300004, guid: dc3df9008d4b8de48b05dd49d2276c50, type: 3}
     - time: 0.625
       value: {fileID: 21300006, guid: dc3df9008d4b8de48b05dd49d2276c50, type: 3}
-    - time: 0.75
-      value: {fileID: 21300008, guid: dc3df9008d4b8de48b05dd49d2276c50, type: 3}
-    - time: 0.875
-      value: {fileID: 21300008, guid: dc3df9008d4b8de48b05dd49d2276c50, type: 3}
-    - time: 1
-      value: {fileID: 21300008, guid: dc3df9008d4b8de48b05dd49d2276c50, type: 3}
-    - time: 1.125
-      value: {fileID: 21300010, guid: dc3df9008d4b8de48b05dd49d2276c50, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -63,16 +56,12 @@ AnimationClip:
     - {fileID: 21300002, guid: dc3df9008d4b8de48b05dd49d2276c50, type: 3}
     - {fileID: 21300004, guid: dc3df9008d4b8de48b05dd49d2276c50, type: 3}
     - {fileID: 21300006, guid: dc3df9008d4b8de48b05dd49d2276c50, type: 3}
-    - {fileID: 21300008, guid: dc3df9008d4b8de48b05dd49d2276c50, type: 3}
-    - {fileID: 21300008, guid: dc3df9008d4b8de48b05dd49d2276c50, type: 3}
-    - {fileID: 21300008, guid: dc3df9008d4b8de48b05dd49d2276c50, type: 3}
-    - {fileID: 21300010, guid: dc3df9008d4b8de48b05dd49d2276c50, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.25
+    m_StopTime: 0.75
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -91,5 +80,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_GenerateMotionCurves: 0
   m_Events: []
