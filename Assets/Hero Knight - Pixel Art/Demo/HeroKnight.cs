@@ -29,7 +29,11 @@ public class HeroKnight : MonoBehaviour
     private int healthPoints = 3;
     private Collider2D playerHitBox;
     public bool onPlatform = false;
-    
+
+    private bool is_Blocking = false;
+
+    private bool is_Moving = false;
+  
     //ATTACK
     [SerializeField] LayerMask attackLayers;
     [SerializeField] Transform attackPoint;
@@ -46,6 +50,7 @@ public class HeroKnight : MonoBehaviour
         m_wallSensorL2 = transform.Find("WallSensor_L2").GetComponent<Sensor_HeroKnight>();
         playerHitBox = gameObject.GetComponent<Collider2D>();
     }
+
  
     void Attack(){
         Collider2D[] colliders = Physics2D.OverlapCircleAll(attackPoint.position, 0.73f, attackLayers);
@@ -59,11 +64,16 @@ public class HeroKnight : MonoBehaviour
 
     public void Hurt(){
         //Hurt
-        m_animator.SetTrigger("Hurt");
-        if (healthPoints > 0) healthPoints--;
-        if (healthPoints <= 0)
-        {
-            Die();
+        if(!is_Blocking){
+            m_animator.SetTrigger("Hurt");
+            if (healthPoints > 0) healthPoints--;
+            if (healthPoints <= 0)
+            {
+                Die();
+            }
+        }
+        else{
+            m_animator.SetTrigger("Block");
         }
         
     }
@@ -107,23 +117,32 @@ public class HeroKnight : MonoBehaviour
         float inputX = Input.GetAxis("Horizontal");
 
         // Swap direction of sprite depending on walk direction
-        if (inputX > 0)
+        if (inputX > 0 && !is_Blocking)
         {
             attackPoint.transform.localPosition = new Vector3(0.8f, 0.8f, 0);
             GetComponent<SpriteRenderer>().flipX = false;
+            is_Moving = true;
             //m_facingDirection = 1;
         }
 
-        else if (inputX < 0)
+        else if (inputX < 0 && !is_Blocking)
         {
             attackPoint.transform.localPosition = new Vector3(-0.8f, 0.8f, 0);
             GetComponent<SpriteRenderer>().flipX = true;
             //m_facingDirection = -1;
+            is_Moving = true;
+        }
+
+        else if(inputX < Mathf.Epsilon){
+            is_Moving = false;
         }
 
         // Move
-        if (!m_rolling)
+        if (!m_rolling && !is_Blocking){
             m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
+            
+        }
+            
 
         //Set AirSpeed in animator
         m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
@@ -142,7 +161,7 @@ public class HeroKnight : MonoBehaviour
 
 
         //Attack
-        if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f)
+        if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f && !is_Blocking)
         {
             m_currentAttack++;
 
@@ -162,14 +181,17 @@ public class HeroKnight : MonoBehaviour
         }
 
         // Block
-        else if (Input.GetMouseButtonDown(1))
+        else if (Input.GetMouseButtonDown(1) && !is_Moving)
         {
+            is_Blocking = true;
             m_animator.SetTrigger("Block");
             m_animator.SetBool("IdleBlock", true);
         }
 
-        else if (Input.GetMouseButtonUp(1))
+        else if (Input.GetMouseButtonUp(1)){
+            is_Blocking = false;
             m_animator.SetBool("IdleBlock", false);
+        }
 
         // // Roll
         // else if (Input.GetKeyDown("left shift") && !m_rolling && !m_isWallSliding)
@@ -181,7 +203,7 @@ public class HeroKnight : MonoBehaviour
 
 
         //Jump
-        else if (Input.GetKeyDown("space") && m_grounded)
+        else if (Input.GetKeyDown("space") && m_grounded && !is_Blocking)
         {
             m_animator.SetTrigger("Jump");
             m_grounded = false;
