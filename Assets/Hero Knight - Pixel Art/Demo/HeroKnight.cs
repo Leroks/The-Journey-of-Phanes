@@ -57,6 +57,23 @@ public class HeroKnight : MonoBehaviour
             }
     }
 
+    public void Hurt(){
+        //Hurt
+        m_animator.SetTrigger("Hurt");
+        if (healthPoints > 0) healthPoints--;
+        if (healthPoints <= 0)
+        {
+            Die();
+        }
+        
+    }
+
+    void Die(){
+        //Death
+        //m_animator.SetTrigger("Death");
+        Destroy(gameObject);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -116,28 +133,16 @@ public class HeroKnight : MonoBehaviour
         // m_isWallSliding = (m_wallSensorR1.State() && m_wallSensorR2.State()) || (m_wallSensorL1.State() && m_wallSensorL2.State());
         // m_animator.SetBool("WallSlide", m_isWallSliding);
 
-        //Death
-        if (Input.GetKeyDown("e"))
-        {
-            m_animator.SetBool("noBlood", m_noBlood);
-            m_animator.SetTrigger("Death");
-        }
+        // //Death
+        // if (Input.GetKeyDown("e"))
+        // {
+        //     m_animator.SetBool("noBlood", m_noBlood);
+        //     m_animator.SetTrigger("Death");
+        // }
 
-
-        //Hurt
-        else if (Input.GetKeyDown("q"))
-        {
-            m_animator.SetTrigger("Hurt");
-            if (healthPoints > 0) healthPoints--;
-            if (healthPoints <= 0 && !m_rolling)
-            {
-                m_animator.SetBool("noBlood", m_noBlood);
-                m_animator.SetTrigger("Death");
-            }
-        }
 
         //Attack
-        else if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f)
+        if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f)
         {
             m_currentAttack++;
 

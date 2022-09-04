@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyKnight : MonoBehaviour
 {
-    float      m_speed = 2f;
+    public float      m_speed = 2f;
     float      m_jumpForce = 7.5f;
     private Animator            m_animator;
     private Rigidbody2D         m_body2d;
@@ -31,6 +31,12 @@ public class EnemyKnight : MonoBehaviour
     private bool m_FacingRight = true;
     private bool isMoving;
 
+    public bool canMove = true;
+
+    //ATTACK
+    [SerializeField] Transform attackPoint;
+    [SerializeField] LayerMask attackLayers;
+ 
     void Start ()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -41,6 +47,16 @@ public class EnemyKnight : MonoBehaviour
         m_wallSensorR2 = transform.Find("WallSensor_R2").GetComponent<Sensor_HeroKnight>();
         m_wallSensorL1 = transform.Find("WallSensor_L1").GetComponent<Sensor_HeroKnight>();
         m_wallSensorL2 = transform.Find("WallSensor_L2").GetComponent<Sensor_HeroKnight>();
+    }
+
+    void Attack(){
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(attackPoint.position, 0.25f, attackLayers);
+
+            foreach(Collider2D col in colliders){
+                if(col.CompareTag("Player"))
+                col.gameObject.GetComponent<HeroKnight>().Hurt();
+                
+            }
     }
 
     public void Die(){
@@ -105,7 +121,7 @@ public class EnemyKnight : MonoBehaviour
             //distanceToEnemy = Vector2.Distance(player.transform.position, transform.position);
 
             // Move
-            if (farToEnemyAbs < 20f && farToEnemyAbs > 1.5f)
+            if (farToEnemyAbs < 20f && farToEnemyAbs > 1.5f && canMove)
             {
                 isMoving = true;
                 m_body2d.velocity = new Vector2(-m_facingDirection * m_speed, m_body2d.velocity.y); 
