@@ -33,6 +33,7 @@ public class HeroKnight : MonoBehaviour
     private bool is_Blocking = false;
 
     private bool is_Moving = false;
+    private float multiply = 1;
   
     //ATTACK
     [SerializeField] LayerMask attackLayers;
@@ -143,6 +144,8 @@ public class HeroKnight : MonoBehaviour
             
         }
             
+        if(m_body2d.velocity.y < 0) gameObject.GetComponent<Rigidbody2D>().gravityScale = 2.5f;
+        else  gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
 
         //Set AirSpeed in animator
         m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
