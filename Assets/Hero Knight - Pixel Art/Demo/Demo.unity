@@ -526,6 +526,7 @@ Transform:
   - {fileID: 1384924521}
   - {fileID: 1463474979}
   - {fileID: 1236316103}
+  - {fileID: 1772138043}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1258,6 +1259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 8521525606701246431, guid: 7f8db2b44b768074e85916e624c1ec48, type: 3}
   spawnPos: {fileID: 1170988378}
+  spawnPos1: {fileID: 1772138043}
 --- !u!1 &1171535385
 GameObject:
   m_ObjectHideFlags: 0
@@ -2331,6 +2333,37 @@ PolygonCollider2D:
       - {x: -5, y: -1.95}
       - {x: 27, y: -1.95}
       - {x: 27, y: 5.2}
+--- !u!1 &1772138042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1772138043}
+  m_Layer: 0
+  m_Name: SpawnPoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1772138043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772138042}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.14, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 304871931}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1825182267 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1826536484046788, guid: 54b204d654804de4e9f3f30aba84c432, type: 3}
