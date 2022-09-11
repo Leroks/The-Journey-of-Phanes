@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1936177745350760327}
   - component: {fileID: 237336171038895748}
-  m_Layer: 6
-  m_Name: AttackPoint
+  - component: {fileID: 6320128583265370209}
+  m_Layer: 0
+  m_Name: AttackPoint&Move
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,15 +40,27 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104991509575068145}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.06, y: 0.03}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.05
+--- !u!114 &6320128583265370209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104991509575068145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5a8651a936e9649aaec0a66a5c59d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2309747345105986124
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5448370864754279976
 Transform:
   m_ObjectHideFlags: 0
@@ -135,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4889385576543320448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.123999804, y: 0.33, z: 0}
+  m_LocalPosition: {x: 0.2, y: 0.33, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -181,13 +194,13 @@ GameObject:
   - component: {fileID: 963785288280186636}
   - component: {fileID: 3720793015450055186}
   - component: {fileID: 5446350404030085091}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WallSensor_L2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &963785288280186636
 Transform:
   m_ObjectHideFlags: 0
@@ -196,7 +209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5697386492787519610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.13360003, y: 0.33, z: 0}
+  m_LocalPosition: {x: -0.25, y: 0.33, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -248,7 +261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2123505985403090044
 Transform:
   m_ObjectHideFlags: 0
@@ -257,7 +270,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6217986855673816166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.124, y: 0.05740001, z: 0}
+  m_LocalPosition: {x: 0.2, y: 0.05740001, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -303,13 +316,13 @@ GameObject:
   - component: {fileID: 2693630288940533564}
   - component: {fileID: 7773139033492191667}
   - component: {fileID: 4607149677747435690}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WallSensor_L1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2693630288940533564
 Transform:
   m_ObjectHideFlags: 0
@@ -318,7 +331,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6671559422120140888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.13360003, y: 0.05740001, z: 0}
+  m_LocalPosition: {x: -0.25, y: 0.05740001, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
