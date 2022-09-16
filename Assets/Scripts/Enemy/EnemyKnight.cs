@@ -30,8 +30,8 @@ public class EnemyKnight : MonoBehaviour
     private float farToEnemyAbs;
     private bool m_FacingRight = true;
     private bool isMoving;
-
     public bool canMove = true;
+    private int health = 2;
 
     //ATTACK
     [SerializeField] Transform attackPoint;
@@ -59,11 +59,25 @@ public class EnemyKnight : MonoBehaviour
             }
     }
 
-    public void Die(){
-        GameObject.FindGameObjectWithTag("Manager").GetComponent<Manager>().Spawn();
-        //m_animator.SetTrigger("Death");
-        //Destroy(gameObject, 1);
-        Destroy(gameObject);
+    private IEnumerator DieDelay()
+    {
+        gameObject.GetComponent<Animator>().SetTrigger("Hurt");
+        yield return new WaitForSeconds(0.2f);
+        gameObject.GetComponent<EnemyKnight>().Die();
+    }
+
+    public void Hurt(){
+        StartCoroutine(DieDelay());
+    }
+
+    private void Die(){
+        health--;
+        if(health <= 0){
+             GameObject.FindGameObjectWithTag("Manager").GetComponent<Manager>().Spawn();
+            //m_animator.SetTrigger("Death");
+            //Destroy(gameObject, 1);
+            Destroy(gameObject);
+        }
     }
 
     private void Flip()
@@ -76,8 +90,9 @@ public class EnemyKnight : MonoBehaviour
         }
         m_FacingRight = !m_FacingRight;
         //GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
-        
     }
+
+    
 
     // Update is called once per frame
     void Update ()
@@ -121,7 +136,7 @@ public class EnemyKnight : MonoBehaviour
             //distanceToEnemy = Vector2.Distance(player.transform.position, transform.position);
 
             // Move
-            if (farToEnemyAbs < 20f && farToEnemyAbs > 1.5f && canMove)
+            if (farToEnemyAbs < 40f && farToEnemyAbs > 1.5f && canMove)
             {
                 isMoving = true;
                 m_body2d.velocity = new Vector2(-m_facingDirection * m_speed, m_body2d.velocity.y); 
@@ -130,12 +145,11 @@ public class EnemyKnight : MonoBehaviour
                 isMoving = false;
             }
                 
-
             //Set AirSpeed in animator
             m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
 
             //Attack
-            if(m_timeSinceAttack > 2f && farToEnemyAbs <= 1.5)
+            if(m_timeSinceAttack > 2f && farToEnemyAbs <= 1.5 && farToEnemyVert > 0f)
             {
                 m_currentAttack++;
 

@@ -10,10 +10,17 @@ public class Manager : MonoBehaviour
     bool right = true;
 
     public void Spawn(){
-        if(right)
-        Instantiate(enemy, spawnPos.position, Quaternion.identity);
-        else Instantiate(enemy, spawnPos1.position, Quaternion.identity);
+        int a = Random.Range(2,3);
+        if(right){
+            for(int i = 0; i < a; i++){
+                Instantiate(enemy, spawnPos.position, Quaternion.identity);
+            }
+        }
+        else{
+            for(int i = 0; i < a; i++){
+                Instantiate(enemy, spawnPos1.position, Quaternion.identity);
+            }
+        }
         right = !right;
     }
-
 }

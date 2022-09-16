@@ -54,15 +54,15 @@ public class HeroKnight : MonoBehaviour
     }
 
     // Death delay for Hurt animation
-    private IEnumerator DieDelay(Collider2D other)
-    {
-        other.gameObject.GetComponent<Animator>().SetTrigger("Hurt");
-        yield return new WaitForSeconds(0.2f);
-        if (other != null)
-        {
-            other.gameObject.GetComponent<EnemyKnight>().Die();
-        }
-    }
+    // private IEnumerator DieDelay(Collider2D other)
+    // {
+    //     other.gameObject.GetComponent<Animator>().SetTrigger("Hurt");
+    //     yield return new WaitForSeconds(0.2f);
+    //     if (other != null)
+    //     {
+    //         other.gameObject.GetComponent<EnemyKnight>().Die();
+    //     }
+    // }
 
     void Attack()
     {
@@ -73,8 +73,8 @@ public class HeroKnight : MonoBehaviour
             if (col.CompareTag("Enemy"))
             {
                 // col.gameObject.GetComponent<Animator>().SetTrigger("Hurt");
-                // col.gameObject.GetComponent<EnemyKnight>().Die();
-                StartCoroutine(DieDelay(col));
+                col.gameObject.GetComponent<EnemyKnight>().Hurt();
+                //StartCoroutine(DieDelay(col));
             }
 
         }
@@ -167,8 +167,8 @@ public class HeroKnight : MonoBehaviour
 
         }
 
-        if (m_body2d.velocity.y < 0) gameObject.GetComponent<Rigidbody2D>().gravityScale = 5f;
-        else gameObject.GetComponent<Rigidbody2D>().gravityScale = 3.5f;
+        if (m_body2d.velocity.y < 0) gameObject.GetComponent<Rigidbody2D>().gravityScale = 4.5f;
+        else gameObject.GetComponent<Rigidbody2D>().gravityScale = 3f;
 
         //Set AirSpeed in animator
         m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
