@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HeroKnight : MonoBehaviour
 {
@@ -104,6 +105,9 @@ public class HeroKnight : MonoBehaviour
         //Death
         //m_animator.SetTrigger("Death");
         Destroy(gameObject);
+        SceneManager.LoadScene(0);
+        
+        
     }
 
     // Update is called once per frame
