@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Platform
   - Manager
+  - RangedEnemy
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Camera
   - PlayerDamageArea
   - SideBorders
-  - 
+  - EnemyProjectile
   - 
   - 
   - 

@@ -77,6 +77,9 @@ public class HeroKnight : MonoBehaviour
                 col.gameObject.GetComponent<EnemyKnight>().Hurt();
                 //StartCoroutine(DieDelay(col));
             }
+            else if(col.CompareTag("RangedEnemy")){
+                col.gameObject.GetComponent<Crossbowman>().Hurt();
+            }
 
         }
     }
