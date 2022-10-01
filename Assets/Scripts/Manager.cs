@@ -29,4 +29,12 @@ public class Manager : MonoBehaviour
         }
         right = !right;
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("p"))
+        {
+            Application.Quit();
+        }
+    }
 }

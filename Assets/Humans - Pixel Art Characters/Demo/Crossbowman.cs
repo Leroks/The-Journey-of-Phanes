@@ -210,7 +210,7 @@ public class Crossbowman : MonoBehaviour {
             //distanceToEnemy = Vector2.Distance(player.transform.position, transform.position);
 
             // Move
-            if (farToEnemyAbs < 40f && farToEnemyAbs > 6.5f && canMove)
+            if (farToEnemyAbs < 40f && farToEnemyAbs > 6f && canMove)
             {
                 isMoving = true;
                 m_body2d.velocity = new Vector2(-m_facingDirection * m_speed, m_body2d.velocity.y); 
@@ -223,7 +223,7 @@ public class Crossbowman : MonoBehaviour {
             m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
 
             //Attack
-            if(m_timeSinceAttack > 2f && farToEnemyAbs <= 6.5)
+            if(m_timeSinceAttack > 2f && farToEnemyAbs <= 6f)
             {
                 // m_currentAttack++;
 
@@ -246,6 +246,9 @@ public class Crossbowman : MonoBehaviour {
             //Jump
             else if (farToEnemyVert > 1f && !isMoving && m_grounded && player.GetComponent<HeroKnight>().onPlatform && m_timeSinceJump > 2f)
             {
+                // Reset timer for attack
+                m_timeSinceAttack = 1.5f;
+
                 m_animator.SetTrigger("Jump");
                 m_grounded = false;
                 m_animator.SetBool("Grounded", m_grounded);
@@ -273,7 +276,7 @@ public class Crossbowman : MonoBehaviour {
         } 
     }
     
-    // Animation Event: Called in Crossbow Attack animation.
+    //Called in Attack animation.
     public void SpawnProjectile()
     {
         if (m_projectile != null)

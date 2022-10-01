@@ -25,6 +25,7 @@ public class HeroKnight : MonoBehaviour
     // private int m_facingDirection = 1;
     private int m_currentAttack = 0;
     private float m_timeSinceAttack = 0.0f;
+    private float timeSpecialAttack = 0.0f;
     private float m_delayToIdle = 0.0f;
     // private float m_rollDuration = 8.0f / 14.0f;
     // private float m_rollCurrentTime;
@@ -36,6 +37,7 @@ public class HeroKnight : MonoBehaviour
 
     private bool is_Moving = false;
     private float multiply = 1;
+    private int m_facingDirection;
 
     //ATTACK
     [SerializeField] LayerMask attackLayers;
@@ -84,10 +86,10 @@ public class HeroKnight : MonoBehaviour
         }
     }
 
-    public void Hurt()
+    public void Hurt(int facingDirection)
     {
-        //Hurt
-        if (!is_Blocking)
+        //Hurt        
+        if (!(is_Blocking && facingDirection == m_facingDirection))
         {
             m_animator.SetTrigger("Hurt");
             if (healthPoints > 0) healthPoints--;
@@ -116,9 +118,12 @@ public class HeroKnight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
 
         // Increase timer that controls attack combo
         m_timeSinceAttack += Time.deltaTime;
+        timeSpecialAttack += Time.deltaTime;
 
         // // Increase timer that checks roll duration
         // if (m_rolling)
@@ -151,14 +156,14 @@ public class HeroKnight : MonoBehaviour
             attackPoint.transform.localPosition = new Vector3(0.8f, 0.8f, 0);
             GetComponent<SpriteRenderer>().flipX = false;
             is_Moving = true;
-            //m_facingDirection = 1;
+            m_facingDirection = 1;
         }
 
         else if (inputX < 0 && !is_Blocking)
         {
             attackPoint.transform.localPosition = new Vector3(-0.8f, 0.8f, 0);
             GetComponent<SpriteRenderer>().flipX = true;
-            //m_facingDirection = -1;
+            m_facingDirection = -1;
             is_Moving = true;
         }
 
@@ -213,27 +218,19 @@ public class HeroKnight : MonoBehaviour
             m_timeSinceAttack = 0.0f;
         }
 
-        if (Input.GetKeyDown("q"))
+        
+        if (Input.GetKeyDown("q") && timeSpecialAttack > 5f)
         {
-            // m_currentAttack++;
-
-            // // Loop back to one after third attack
-            // if (m_currentAttack > 3)
-            //     m_currentAttack = 1;
-
-            // // Reset Attack combo if time since last attack is too large
-            // if (m_timeSinceAttack > 1.0f)
-            //     m_currentAttack = 1;
-
+            
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
             m_animator.SetTrigger("SpecialAttack");
 
             // Reset timer
-            // m_timeSinceAttack = 0.0f;
+            timeSpecialAttack = 0.0f;
         }
 
         // Block
-        else if (Input.GetMouseButtonDown(1) && !is_Moving)
+        else if (Input.GetMouseButtonDown(1))
         {
             is_Blocking = true;
             m_animator.SetTrigger("Block");
@@ -245,7 +242,7 @@ public class HeroKnight : MonoBehaviour
             is_Blocking = false;
             m_animator.SetBool("IdleBlock", false);
         }
-
+        
         // // Roll
         // else if (Input.GetKeyDown("left shift") && !m_rolling && !m_isWallSliding)
         // {

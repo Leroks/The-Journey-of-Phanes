@@ -24,7 +24,7 @@ public class Projectile_Humans : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")){
-            collision.gameObject.GetComponent<HeroKnight>().Hurt();
+            collision.gameObject.GetComponent<HeroKnight>().Hurt((-(int)transform.localScale.x));
             Destroy(gameObject);
         }
             

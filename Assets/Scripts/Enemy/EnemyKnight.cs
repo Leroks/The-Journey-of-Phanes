@@ -54,7 +54,7 @@ public class EnemyKnight : MonoBehaviour
 
             foreach(Collider2D col in colliders){
                 if(col.CompareTag("Player"))
-                col.gameObject.GetComponent<HeroKnight>().Hurt();
+                col.gameObject.GetComponent<HeroKnight>().Hurt(m_facingDirection);
                 
             }
     }

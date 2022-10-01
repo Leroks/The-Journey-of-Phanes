@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61b2ac6beff8be4085aa95e9cfcb2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 1.4
+  m_speed: 1.25
   m_jumpForce: 7.5
   m_projectile: {fileID: 194752, guid: de0e9a9b599568a4bb06f0b519bb3d52, type: 3}
   m_projectionSpawnOffset: {x: 0.5, y: 1, z: 0}
