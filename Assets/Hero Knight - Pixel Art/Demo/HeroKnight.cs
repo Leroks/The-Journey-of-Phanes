@@ -219,7 +219,7 @@ public class HeroKnight : MonoBehaviour
         }
 
         
-        if (Input.GetKeyDown("q") && timeSpecialAttack > 5f)
+        if (Input.GetKeyDown("w") && timeSpecialAttack > 5f)
         {
             
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
