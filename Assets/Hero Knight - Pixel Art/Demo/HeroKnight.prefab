@@ -125,9 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5034bc83802944c9bca57c55e08978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 4
-  m_jumpForce: 13
-  m_noBlood: 0
+  m_speed: 2
+  m_jumpForce: 11
   onPlatform: 0
   attackLayers:
     serializedVersion: 2

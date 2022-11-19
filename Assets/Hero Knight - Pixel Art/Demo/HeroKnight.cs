@@ -6,10 +6,9 @@ using UnityEngine.SceneManagement;
 public class HeroKnight : MonoBehaviour
 {
 
-    [SerializeField] float m_speed = 4.0f;
-    [SerializeField] float m_jumpForce = 7.5f;
+    [SerializeField] float m_speed;
+    [SerializeField] float m_jumpForce;
     // [SerializeField] float m_rollForce = 6.0f;
-    [SerializeField] bool m_noBlood = false;
     // [SerializeField] GameObject m_slideDust;
 
     private Animator m_animator;
@@ -43,16 +42,19 @@ public class HeroKnight : MonoBehaviour
     [SerializeField] LayerMask attackLayers;
     [SerializeField] Transform attackPoint;
 
+    // TODO:
+    private HeroType heroType = HeroType.Paladin;
+
     // Use this for initialization
     void Start()
     {
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_HeroKnight>();
-        m_wallSensorR1 = transform.Find("WallSensor_R1").GetComponent<Sensor_HeroKnight>();
-        m_wallSensorR2 = transform.Find("WallSensor_R2").GetComponent<Sensor_HeroKnight>();
-        m_wallSensorL1 = transform.Find("WallSensor_L1").GetComponent<Sensor_HeroKnight>();
-        m_wallSensorL2 = transform.Find("WallSensor_L2").GetComponent<Sensor_HeroKnight>();
+        // m_wallSensorR1 = transform.Find("WallSensor_R1").GetComponent<Sensor_HeroKnight>();
+        // m_wallSensorR2 = transform.Find("WallSensor_R2").GetComponent<Sensor_HeroKnight>();
+        // m_wallSensorL1 = transform.Find("WallSensor_L1").GetComponent<Sensor_HeroKnight>();
+        // m_wallSensorL2 = transform.Find("WallSensor_L2").GetComponent<Sensor_HeroKnight>();
         playerHitBox = gameObject.GetComponent<Collider2D>();
     }
 
@@ -151,7 +153,7 @@ public class HeroKnight : MonoBehaviour
         float inputX = Input.GetAxis("Horizontal");
 
         // Swap direction of sprite depending on walk direction
-        if (inputX > 0 && !is_Blocking)
+        if (inputX > 0 & !is_Blocking)
         {
             attackPoint.transform.localPosition = new Vector3(0.8f, 0.8f, 0);
             GetComponent<SpriteRenderer>().flipX = false;
@@ -159,7 +161,7 @@ public class HeroKnight : MonoBehaviour
             m_facingDirection = 1;
         }
 
-        else if (inputX < 0 && !is_Blocking)
+        else if (inputX < 0 & !is_Blocking)
         {
             attackPoint.transform.localPosition = new Vector3(-0.8f, 0.8f, 0);
             GetComponent<SpriteRenderer>().flipX = true;
@@ -173,7 +175,7 @@ public class HeroKnight : MonoBehaviour
         }
 
         // Move
-        if (!m_rolling && !is_Blocking)
+        if (!m_rolling & !is_Blocking)
         {
             m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
 
@@ -212,6 +214,8 @@ public class HeroKnight : MonoBehaviour
                 m_currentAttack = 1;
 
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
+            if(heroType == HeroType.Paladin)m_animator.SetTrigger("Attack");
+            else
             m_animator.SetTrigger("Attack" + m_currentAttack);
 
             // Reset timer
