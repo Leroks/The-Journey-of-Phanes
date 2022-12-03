@@ -201,8 +201,8 @@ public class Priest : MonoBehaviour {
 
     private void OnCollisionStay2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Platform")) { onPlatform = true; }
-        else { onPlatform = false; }
+        if (col.gameObject.CompareTag("Platform")) { Statics.isPlayerOnPlatform = true; }
+        else { Statics.isPlayerOnPlatform = false; }
     }
     
 }

@@ -169,7 +169,7 @@ public class EnemyKnight : MonoBehaviour
             }
             
             //Jump 
-            else if (farToEnemyVert > 1f && !isMoving && m_grounded && player.GetComponent<HeroKnight>().onPlatform && m_timeSinceJump > 2f)
+            else if (farToEnemyVert > 1f && !isMoving && m_grounded && Statics.isPlayerOnPlatform && m_timeSinceJump > 2f)
             {
                 m_animator.SetTrigger("Jump");
                 m_grounded = false;
