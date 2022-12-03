@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 2
-  m_jumpForce: 11
+  m_jumpForce: 13
   onPlatform: 0
   attackLayers:
     serializedVersion: 2

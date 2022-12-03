@@ -3,9 +3,8 @@ using System.Collections;
 
 public class Projectile_Humans : MonoBehaviour
 {
-
-    [SerializeField]
-    float speed = 1.0f;
+    [SerializeField] private string _target, _target_2;
+    [SerializeField] float speed = 1.0f;
 
     private Rigidbody2D body2d;
 
@@ -23,8 +22,11 @@ public class Projectile_Humans : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")){
-            collision.gameObject.GetComponent<HeroKnight>().Hurt((-(int)transform.localScale.x));
+        if (collision.CompareTag(_target) || collision.CompareTag(_target_2)){
+            collision.gameObject.GetComponent<HeroKnight>()?.Hurt((-(int)transform.localScale.x));
+            collision.gameObject.GetComponent<Priest>()?.Hurt((-(int)transform.localScale.x));
+            collision.gameObject.GetComponent<Crossbowman>()?.Hurt();
+            collision.gameObject.GetComponent<EnemyKnight>()?.Hurt();
             Destroy(gameObject);
         }
             

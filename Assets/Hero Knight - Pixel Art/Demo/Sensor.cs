@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Sensor_PixelHeroes : MonoBehaviour {
+public class Sensor : MonoBehaviour {
 
     private int m_ColCount = 0;
 

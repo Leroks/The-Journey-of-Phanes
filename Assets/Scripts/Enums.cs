@@ -1,1 +1,1 @@
-public enum HeroType {Paladin};
+public enum HeroType {Warrior,Paladin};

@@ -1,19 +1,7 @@
 fileFormatVersion: 2
-guid: 1b8811fef59712a4db40eb4de1ca5f4b
+guid: b9b4f9cc46f95464c84af69d1b989825
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 21300000
-    second: LightningBolt_0
-  - first:
-      213: 21300002
-    second: LightningBolt_1
-  - first:
-      213: 21300004
-    second: LightningBolt_2
-  - first:
-      213: 21300006
-    second: LightningBolt_3
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -45,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -59,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 70
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -74,32 +62,56 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -118,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 889688191fb758849a9f1dc9dc3e14d6
-      internalID: 21300000
+      spriteID: fa1a909b0224dfc4da2f8e8faf00b9f6
+      internalID: 344958264
       vertices: []
       indices: 
       edges: []
@@ -139,8 +151,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69eee129927135e48a8e1fc618ddceed
-      internalID: 21300002
+      spriteID: 73a846c1c26d4af46a559aa12e5a43df
+      internalID: 1494873115
       vertices: []
       indices: 
       edges: []
@@ -160,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f7bc7fb8483ca94caca2066036bfe13
-      internalID: 21300004
+      spriteID: 2688162ae62e1d5458c538a3827e54a2
+      internalID: -127337307
       vertices: []
       indices: 
       edges: []
@@ -181,8 +193,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccbfbdf856a8e5244b072384e403f5ac
-      internalID: 21300006
+      spriteID: 54d2b3c05e67900478b88776f9550c87
+      internalID: 2055854312
       vertices: []
       indices: 
       edges: []
@@ -190,7 +202,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 38b9f3832faa1f14689ae6e863273537
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -198,10 +210,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      LightningBolt_0: 21300000
-      LightningBolt_3: 21300006
-      LightningBolt_1: 21300002
-      LightningBolt_2: 21300004
+      LightningBolt_0: 344958264
+      LightningBolt_3: 2055854312
+      LightningBolt_1: 1494873115
+      LightningBolt_2: -127337307
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
