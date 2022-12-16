@@ -8,20 +8,16 @@ public class Priest : MonoBehaviour {
 
     private Animator            m_animator;
     private Rigidbody2D         m_body2d;
-    private Sensor  m_groundSensor;
+    private Sensor              m_groundSensor;
     private bool                m_grounded = false;
     private float               m_delayToIdle = 0.0f;
-    private int m_currentAttack = 0;
+    private int                 m_currentAttack = 0;
     private float m_timeSinceAttack = 0.0f;
     private float timeSpecialAttack = 0.0f;
     private int healthPoints = 3;
     private Collider2D playerHitBox;
-    public bool onPlatform = false;
-
     private bool is_Blocking = false;
-
     private bool is_Moving = false;
-    private float multiply = 1;
     private int m_facingDirection;
     [SerializeField] Transform attackPoint;
     [SerializeField] GameObject _projectile;
@@ -34,11 +30,6 @@ public class Priest : MonoBehaviour {
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
         playerHitBox = gameObject.GetComponent<Collider2D>();
-    }
-
-    void Attack()
-    {
-        
     }
 
     public void Hurt(int facingDirection)
@@ -99,7 +90,7 @@ public class Priest : MonoBehaviour {
             m_facingDirection = 1;
         }
 
-        else if (inputX < 0 & !is_Blocking)
+        else if (inputX < 0 & !is_Blocking )
         {
             attackPoint.transform.localPosition = new Vector3(-0.8f, 0.8f, 0);
             GetComponent<SpriteRenderer>().flipX = true;
@@ -126,7 +117,7 @@ public class Priest : MonoBehaviour {
         m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
 
 
-        if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f && !is_Blocking)
+        if (Input.GetMouseButtonDown(0) & m_timeSinceAttack > 0.5f & !is_Blocking)
         {
             m_currentAttack++;
         
@@ -137,9 +128,7 @@ public class Priest : MonoBehaviour {
 
         if (Input.GetKeyDown("w") && timeSpecialAttack > 5f)
         {
-        
             m_animator.SetTrigger("Heal");
-
             // Reset timer
             timeSpecialAttack = 0.0f;
         }

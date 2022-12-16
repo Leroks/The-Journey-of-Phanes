@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: Player
+  _target_2: Player
   speed: 3
 --- !u!212 &21253194
 SpriteRenderer:

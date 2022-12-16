@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3735304166349396507}
   - component: {fileID: 488579892285342903}
   m_Layer: 7
-  m_Name: Knight
+  m_Name: Paladin
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,11 +171,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 4
   m_jumpForce: 13
-  onPlatform: 0
   attackLayers:
     serializedVersion: 2
     m_Bits: 64
   attackPoint: {fileID: 2196337295742733077}
+  heroType: 0
 --- !u!1 &4792785565004577373
 GameObject:
   m_ObjectHideFlags: 0

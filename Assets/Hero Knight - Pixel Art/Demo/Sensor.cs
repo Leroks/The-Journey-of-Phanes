@@ -38,4 +38,9 @@ public class Sensor : MonoBehaviour {
     {
         m_DisableTimer = duration;
     }
+     private void OnCollisionStay2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Platform")) { Statics.isPlayerOnPlatform = true; }
+        else { Statics.isPlayerOnPlatform = false; }
+    }
 }

@@ -5,30 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class HeroKnight : MonoBehaviour
 {
-
     [SerializeField] float m_speed;
     [SerializeField] float m_jumpForce;
-    // [SerializeField] float m_rollForce = 6.0f;
-    // [SerializeField] GameObject m_slideDust;
-
     private Animator m_animator;
     private Rigidbody2D m_body2d;
     private Sensor m_groundSensor;
     private bool m_grounded = false;
     private bool m_rolling = false;
-    // private int m_facingDirection = 1;
     private int m_currentAttack = 0;
     private float m_timeSinceAttack = 0.0f;
     private float timeSpecialAttack = 0.0f;
     private float m_delayToIdle = 0.0f;
     private int healthPoints = 3;
     private Collider2D playerHitBox;
-    public bool onPlatform = false;
-
     private bool is_Blocking = false;
-
     private bool is_Moving = false;
-    private float multiply = 1;
     private int m_facingDirection;
 
     //ATTACK
@@ -46,17 +37,6 @@ public class HeroKnight : MonoBehaviour
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
         playerHitBox = gameObject.GetComponent<Collider2D>();
     }
-
-    // Death delay for Hurt animation
-    // private IEnumerator DieDelay(Collider2D other)
-    // {
-    //     other.gameObject.GetComponent<Animator>().SetTrigger("Hurt");
-    //     yield return new WaitForSeconds(0.2f);
-    //     if (other != null)
-    //     {
-    //         other.gameObject.GetComponent<EnemyKnight>().Die();
-    //     }
-    // }
 
     void Attack()
     {
@@ -109,8 +89,6 @@ public class HeroKnight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
 
         // Increase timer that controls attack combo
         m_timeSinceAttack += Time.deltaTime;
@@ -176,19 +154,6 @@ public class HeroKnight : MonoBehaviour
         //Set AirSpeed in animator
         m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
 
-        // -- Handle Animations --
-        //Wall Slide
-        // m_isWallSliding = (m_wallSensorR1.State() && m_wallSensorR2.State()) || (m_wallSensorL1.State() && m_wallSensorL2.State());
-        // m_animator.SetBool("WallSlide", m_isWallSliding);
-
-        // //Death
-        // if (Input.GetKeyDown("e"))
-        // {
-        //     m_animator.SetBool("noBlood", m_noBlood);
-        //     m_animator.SetTrigger("Death");
-        // }
-
-
         //Attack
         if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f && !is_Blocking)
         {
@@ -203,9 +168,10 @@ public class HeroKnight : MonoBehaviour
                 m_currentAttack = 1;
 
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
-            if(heroType == HeroType.Paladin)m_animator.SetTrigger("Attack");
+            if(heroType == HeroType.Warrior)  m_animator.SetTrigger("Attack" + m_currentAttack);
             else
-            m_animator.SetTrigger("Attack" + m_currentAttack);
+            m_animator.SetTrigger("Attack");
+           
 
             // Reset timer
             m_timeSinceAttack = 0.0f;
@@ -235,15 +201,6 @@ public class HeroKnight : MonoBehaviour
             is_Blocking = false;
             m_animator.SetBool("IdleBlock", false);
         }
-        
-        // // Roll
-        // else if (Input.GetKeyDown("left shift") && !m_rolling && !m_isWallSliding)
-        // {
-        //     m_rolling = true;
-        //     m_animator.SetTrigger("Roll");
-        //     m_body2d.velocity = new Vector2(m_facingDirection * m_rollForce, m_body2d.velocity.y);
-        // }
-
 
         //Jump
         else if (Input.GetKeyDown("space") && m_grounded && !is_Blocking)
@@ -292,11 +249,7 @@ public class HeroKnight : MonoBehaviour
     //         dust.transform.localScale = new Vector3(m_facingDirection, 1, 1);
     //     }
     // }
-    private void OnCollisionStay2D(Collision2D col)
-    {
-        if (col.gameObject.CompareTag("Platform")) { Statics.isPlayerOnPlatform = true; }
-        else { Statics.isPlayerOnPlatform = false; }
-    }
+   
 
     // // TODO on collision with enemey play hurt animation
     // private void OnCollisionEnter2D(Collision2D other)

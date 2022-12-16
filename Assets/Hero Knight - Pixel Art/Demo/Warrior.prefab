@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 8942925490989933264}
   - component: {fileID: 9117128348835321587}
   m_Layer: 7
-  m_Name: HeroKnight
+  m_Name: Warrior
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,11 +127,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 2
   m_jumpForce: 13
-  onPlatform: 0
   attackLayers:
     serializedVersion: 2
     m_Bits: 64
   attackPoint: {fileID: 6905924258588883279}
+  heroType: 0
 --- !u!95 &2655505060201611074
 Animator:
   serializedVersion: 4
