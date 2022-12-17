@@ -170,8 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 4
-  m_jumpForce: 10
-  onPlatform: 0
+  m_jumpForce: 13
   attackPoint: {fileID: 1860305434503228758}
   _projectile: {fileID: 6892838778382798790, guid: 59b8f161636be844e84139cf9341ab9e, type: 3}
   _projectionSpawnOffset: {x: 0.5, y: 1.2, z: 0}

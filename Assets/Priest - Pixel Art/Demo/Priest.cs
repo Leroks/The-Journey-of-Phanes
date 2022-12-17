@@ -46,7 +46,6 @@ public class Priest : MonoBehaviour {
         }
         else
         {
-            Debug.Log("BLOCKED");
             m_animator.SetTrigger("Block");
         }
 
@@ -129,7 +128,7 @@ public class Priest : MonoBehaviour {
 
         if (Input.GetKeyDown("w") && timeSpecialAttack > 5f)
         {
-            m_animator.SetTrigger("Heal");
+            m_animator.SetTrigger("SpecialAttack");
             // Reset timer
             timeSpecialAttack = 0.0f;
         }

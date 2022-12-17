@@ -172,8 +172,8 @@ MonoBehaviour:
   m_speed: 4
   m_jumpForce: 20
   attackPoint: {fileID: 3503041902985241951}
-  _projectile: {fileID: 6892838778382798790, guid: 59b8f161636be844e84139cf9341ab9e, type: 3}
-  _projectionSpawnOffset: {x: 0.5, y: 1.2, z: 0}
+  _projectile: {fileID: 2725582664459735670, guid: 89e32d33ca639ea48b95f8cb09f3e7bd, type: 3}
+  _projectionSpawnOffset: {x: 0.5, y: 1.1, z: 0}
 --- !u!1 &4770354928478432947
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8663575164774245691}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.392, y: 0.97, z: 0}
+  m_LocalPosition: {x: 0.469, y: 0.931, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
