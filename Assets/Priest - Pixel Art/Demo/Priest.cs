@@ -35,7 +35,7 @@ public class Priest : MonoBehaviour {
     public void Hurt(int facingDirection)
     {
         //Hurt        
-        if (!(is_Blocking && facingDirection == m_facingDirection))
+        if (!(is_Blocking & facingDirection == m_facingDirection))
         {
             m_animator.SetTrigger("Hurt");
             if (healthPoints > 0) healthPoints--;
@@ -46,6 +46,7 @@ public class Priest : MonoBehaviour {
         }
         else
         {
+            Debug.Log("BLOCKED");
             m_animator.SetTrigger("Block");
         }
 
@@ -137,7 +138,7 @@ public class Priest : MonoBehaviour {
         if (Input.GetMouseButtonDown(1))
         {
             is_Blocking = true;
-            m_animator.SetTrigger("Block");
+            m_animator.SetTrigger("TriggerBlock");
             m_animator.SetBool("IdleBlock", true);
         }
 
