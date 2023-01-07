@@ -5,6 +5,8 @@ public class Priest : MonoBehaviour {
 
     [SerializeField] float      m_speed = 4.0f;
     [SerializeField] float      m_jumpForce = 7.5f;
+    [SerializeField] float      gravity_jump = 4.5f;
+    [SerializeField] float      gravity_normal = 3f;
 
     private Animator            m_animator;
     private Rigidbody2D         m_body2d;
@@ -110,8 +112,8 @@ public class Priest : MonoBehaviour {
 
         }
 
-        if (m_body2d.velocity.y < 0) gameObject.GetComponent<Rigidbody2D>().gravityScale = 4.5f;
-        else gameObject.GetComponent<Rigidbody2D>().gravityScale = 3f;
+        if (m_body2d.velocity.y < 0) gameObject.GetComponent<Rigidbody2D>().gravityScale = gravity_jump;
+        else gameObject.GetComponent<Rigidbody2D>().gravityScale = gravity_normal;
 
         //Set AirSpeed in animator
         m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
